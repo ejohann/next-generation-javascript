@@ -15,13 +15,25 @@ let age6 = 23;
 console.log(name6);
 
 //ES5
-function driversLicense(passedTest){
+function driversLicense5(passedTest){
     if(passedTest){
         var firstName = 'John';
         var yearOfBirth = 1998;
-        
-        console.log(firstName + ', born in ' + yearOfBirth + ', is now officially allowed to drive a car.');
     }
+    console.log(firstName + ', born in ' + yearOfBirth + ', is now officially allowed to drive a car.');
+    
 }
+driversLicense5(true);
 
-driversLicense(true);
+//ES6
+function driversLicense6(passedTest){
+    const yearOfBirth = 1998;
+    let firstName;
+    if(passedTest){
+        firstName = 'John'; 
+      }
+    // let and const is block based
+    console.log(firstName + ', born in ' + yearOfBirth + ', is now officially allowed to drive a car.');
+    
+}
+driversLicense6(true);
