@@ -73,3 +73,41 @@ console.log(x);
     var c = 3;
 })();
 //console.log(c);
+
+
+/***********************************
+***  Strings
+**********************************/
+let firstName = 'John';
+let lastName = 'Smith';
+const yearOfBirth = 1980;
+function calcAge(year){
+    return 2019 - year;  
+  }
+
+//ES5
+console.log('This is ' + firstName + ' ' + lastName + '. He was born in ' + yearOfBirth + '. Today he is ' + calcAge(yearOfBirth) + ' years old.');
+
+
+//ES6
+console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today he is ${calcAge(yearOfBirth)} years old.`)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
