@@ -124,7 +124,7 @@ console.log(age6);
 age6 = years.map((el, index) => {
     const now = new Date().getFullYear();
     const age = now - el;
-    return `Age element ${index + 1}: ${2019 - el}.`
+    return `Age element ${index + 1}: ${age}.`
   });
 
 console.log(age6);
