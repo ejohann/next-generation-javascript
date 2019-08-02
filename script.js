@@ -1,5 +1,7 @@
-// let and const
-
+/***************************
+** let and const
+**************************/
+/*
 //ES5
 var name5 = 'Jane Smith';
 var age5 = 23;
@@ -13,7 +15,9 @@ let age6 = 23;
 // throws error as const cannot change
 // name6 = 'Jane Miller';
 console.log(name6);
+*/
 
+/*
 //ES5
 function driversLicense5(passedTest){
     if(passedTest){
@@ -37,7 +41,9 @@ function driversLicense6(passedTest){
     
 }
 driversLicense6(true);
+*/
 
+/*
 let i = 23;
 for(let i = 0; i < 5; i++){
     console.log('let ' + i);
@@ -49,3 +55,21 @@ for(var x = 0; x < 5; x++){
     console.log('var ' + x);  
   }
 console.log(x);
+
+*/
+/***********************************
+***  Blocks and IIFES
+**********************************/
+
+// ES6 
+{
+    const a = 1;
+    let b = 2;
+}
+//console.log(a,b);
+
+// ES5
+(function(){
+    var c = 3;
+})();
+//console.log(c);
