@@ -100,7 +100,22 @@ console.log(`${firstName} `.repeat(5));
 
 
 
+/***********************************
+***  Arrow functions
+**********************************/
 
+const years = [1998, 1965, 1948, 1980];
+
+//ES5 
+var age5 = years.map(function(el){
+   return 2019 - el; 
+});
+console.log(age5);
+
+
+// ES6 
+const age6 = years.map(el => 2019 -el);
+console.log(age6);
 
 
 
