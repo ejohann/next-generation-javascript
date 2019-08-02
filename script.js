@@ -113,14 +113,12 @@ var age5 = years.map(function(el){
 console.log(age5);
 
 
-// ES6 
-const age6 = years.map(el => 2019 -el);
+let age6 = years.map(el => 2019 -el);
 console.log(age6);
 
-
-
-
-
+// more than one arguement
+age6 = years.map((el, index) => `Age element ${index + 1}: ${2019 - el}.`);
+console.log(age6);
 
 
 
