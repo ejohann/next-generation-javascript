@@ -37,3 +37,15 @@ function driversLicense6(passedTest){
     
 }
 driversLicense6(true);
+
+let i = 23;
+for(let i = 0; i < 5; i++){
+    console.log('let ' + i);
+ }
+console.log(i);
+
+var x = 23;
+for(var x = 0; x < 5; x++){
+    console.log('var ' + x);  
+  }
+console.log(x);
