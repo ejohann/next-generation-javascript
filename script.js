@@ -78,6 +78,7 @@ console.log(x);
 /***********************************
 ***  Strings
 **********************************/
+/*
 let firstName = 'John';
 let lastName = 'Smith';
 const yearOfBirth = 1980;
@@ -97,13 +98,13 @@ console.log(n.endsWith('th'));
 console.log(n.includes('Sm'));
 console.log(`${firstName} `.repeat(5));
 
-
+*/
 
 
 /***********************************
 ***  Arrow functions
 **********************************/
-
+/*
 const years = [1998, 1965, 1948, 1980];
 
 //ES5 
@@ -128,12 +129,12 @@ age6 = years.map((el, index) => {
   });
 
 console.log(age6);
-
+*/
 
 /***********************************
 ***  Arrow functions 2
 **********************************/
-
+/*
 // ES5 
 var box5 = {
     color: 'green',
@@ -160,8 +161,8 @@ const box6 = {
     }
 }
 //box6.clickMe();
-
-
+*/
+/*
 const box66 = {
     color: 'green',
     position: 1,
@@ -173,8 +174,24 @@ const box66 = {
     }
 }
 box66.clickMe();
+*/
 
+function Person(name) {
+    this.name = name;
+}
 
+Person.prototype.myFriends5 = function(friends)
+  {
+    var arr = friends.map(function(el)
+     {
+        return this.name + ' is friends with ' + el;                     
+     }.bind(this));
+    console.log(arr);
+}
+
+var friends = ['Bob', 'Jane', 'Mark'];
+
+new Person('John').myFriends5(friends);
 
 
 
