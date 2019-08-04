@@ -194,15 +194,11 @@ var friends = ['Bob', 'Jane', 'Mark'];
 new Person('John').myFriends5(friends);
 
 // ES6 
-
 Person.prototype.myFriends6 = function(friends)
   {
-    const arr = friends.map((el) =>
-     {
-        return this.name + ' is friends with ' + el;                     
-     });
+    const arr = friends.map(el => `${this.name} is friends with ${el}` );
     console.log(arr);
-}
+  }
 
 var friends = ['Bob', 'Mary', 'Mike'];
 
