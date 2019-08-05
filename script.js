@@ -440,7 +440,7 @@ console.log(emily);
 /***********************************
 ***  Maps
 **********************************/
-
+/*
 const question = new Map();
 question.set('question', 'What is the official name of the latest major javascript version?');
 question.set(1, 'ES5');
@@ -450,7 +450,8 @@ question.set(4, 'ES7');
 question.set('correct', 3);
 question.set(true, 'Correct answer');
 question.set(false, 'Wrong, please try again');
-/*
+
+
 console.log(question);
 console.log(question.get('question'));
 console.log(question.size);
@@ -470,7 +471,7 @@ if(question.has(4)){
 for(let[key, value] of question.entries()){
    console.log(`this is ${key}, and it's set to ${value}`);   
 }
-*/
+
 console.log(question.get('question'));
 
 for(let[key, value] of question.entries()){
@@ -483,16 +484,48 @@ for(let[key, value] of question.entries()){
 const ans = parseInt(prompt('Write the correct answer'));
 
  console.log(question.get(ans === question.get('correct')));
+*/
 
 
 
+/***********************************
+***  Classes
+**********************************/
+
+
+//ES5
+var Person5 = function(name, yearOfBirth, job){
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+}
+
+
+Person5.prototype.calculateAge = function(){
+    var age = new Date().getFullYear - this.yearOfBirth;
+    console.log(age);
+}
+
+var john5 = new Person5('John', 1998, 'teacher');
 
 
 
+//ES6
+class Person6{
+    constructor(name, yearOfBirth, job){
+        this.name = name;
+        this.yearOfBirth = yearOfBirth;
+        this.job = job;
+    }
+    
+    calculateAge(){
+        var age = new Date().getFullYear() - this.yearOfBirth;
+        console.log(age);
+    }
+}
 
-
-
-
+const mike6 = new Person6('Mike', 1997, 'developer');
+mike6.calculateAge();
 
 
 
