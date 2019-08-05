@@ -306,7 +306,7 @@ console.log(ages.find(cur => cur >= 18));
 /***********************************
 ***  Spread Operator
 **********************************/
-
+/*
 
 function addFourAges (a, b, c, d){
     return a + b + c + d;
@@ -341,14 +341,14 @@ const all = [h, ...boxes];
 
 // convert nodelist to array and change color
 Array.from(all).forEach(cur => cur.style.color = 'purple');
-
+*/
 
 
 
 /***********************************
 ***  Rest Parameters
 **********************************/
-
+/*
 
 // ES5
 function isFullAge5(){
@@ -369,15 +369,32 @@ function isFullAge6(...years){
 }
 
 isFullAge6(1997, 2006, 1980);
+*/
 
 
 
+// ES5
+// first value as limit arugment
+function isFullAge5(limit){
+    //console.log(arguments);
+    var argsArr = Array.prototype.slice.call(arguments, 1);
+    console.log(argsArr);
+    argsArr.forEach(function(cur){
+       console.log((2019 - cur) >= limit); 
+    });
+}
+
+isFullAge5(21, 1990, 1997, 2006, 1980);
 
 
+//ES6
+// first value as limit arugment
+function isFullAge6(limit, ...years){
+  //console.log(years);
+    years.forEach(cur => console.log((2019 - cur) >= limit));
+}
 
-
-
-
+isFullAge6(21, 1990, 1997, 2006, 1980);
 
 
 
