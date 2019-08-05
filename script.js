@@ -371,7 +371,7 @@ function isFullAge6(...years){
 isFullAge6(1997, 2006, 1980);
 */
 
-
+/*
 
 // ES5
 // first value as limit arugment
@@ -395,20 +395,29 @@ function isFullAge6(limit, ...years){
 }
 
 isFullAge6(21, 1990, 1997, 2006, 1980);
+*/
 
 
+/***********************************
+***  Default Parameters
+**********************************/
 
+//ES5
+function SmithPerson(firstName,yearOfBirth, lastName, nationality){
 
+    lastName === undefined ? lastName = 'Smith' : lastName = lastName;
+    nationality === undefined ? nationality = 'british' : nationality = nationality;
+    this.firstName = firstName;
+    this.yearOfBirth = yearOfBirth;
+    this.lastName = lastName;
+    this.nationality = nationality;
+}
 
+var john = new SmithPerson('John', 1997);
+console.log(john);
 
-
-
-
-
-
-
-
-
+var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
+console.log(emily);
 
 
 
