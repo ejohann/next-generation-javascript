@@ -450,7 +450,7 @@ question.set(4, 'ES7');
 question.set('correct', 3);
 question.set(true, 'Correct answer');
 question.set(false, 'Wrong, please try again');
-
+/*
 console.log(question);
 console.log(question.get('question'));
 console.log(question.size);
@@ -459,17 +459,47 @@ if(question.has(4)){
   //  question.delete(4);
     console.log('Answer 4 is here');
 }
-
+*/
 //console.log(question);
 
 //question.clear();
 //console.log(question);
 
 // question.forEach((value, key) => console.log(`this is ${key}, and it's set to ${value}`));
-
+/*
 for(let[key, value] of question.entries()){
    console.log(`this is ${key}, and it's set to ${value}`);   
 }
+*/
+console.log(question.get('question'));
+
+for(let[key, value] of question.entries()){
+   
+    if(typeof(key) === 'number'){
+        console.log(`Answer ${key}: ${value}`); 
+    }
+      
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
