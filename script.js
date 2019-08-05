@@ -401,7 +401,7 @@ isFullAge6(21, 1990, 1997, 2006, 1980);
 /***********************************
 ***  Default Parameters
 **********************************/
-
+/*
 //ES5
 function SmithPerson(firstName,yearOfBirth, lastName, nationality){
 
@@ -418,6 +418,19 @@ console.log(john);
 
 var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
 console.log(emily);
+*/
 
 
+//ES6 
+function SmithPerson(firstName,yearOfBirth, lastName = 'Smith', nationality = 'british'){
+    this.firstName = firstName;
+    this.yearOfBirth = yearOfBirth;
+    this.lastName = lastName;
+    this.nationality = nationality;
+}
 
+var john = new SmithPerson('John', 1997);
+console.log(john);
+
+var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
+console.log(emily);
