@@ -330,6 +330,9 @@ const familyMiller = ['Mary', 'Bob', 'Ann'];
 const bigFamily = [...familySmith, ...familyMiller];
 console.log(bigFamily);
 
+const bigFamily2 = [...familySmith, 'Lily', ...familyMiller];
+console.log(bigFamily2);
+
 
 
 
