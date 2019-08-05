@@ -334,6 +334,14 @@ const bigFamily2 = [...familySmith, 'Lily', ...familyMiller];
 console.log(bigFamily2);
 
 
+const h = document.querySelector('h1');
+const boxes = document.querySelectorAll('.box');
+
+const all = [h, ...boxes];
+
+// convert nodelist to array and change color
+Array.from(all).forEach(cur => cur.style.color = 'purple');
+
 
 
 
