@@ -539,7 +539,7 @@ Person6.greeting();
 /***********************************
 ***  Sub Classes
 **********************************/
-
+/*
 //ES5
 var Person5 = function(name, yearOfBirth, job){
     this.name = name;
@@ -616,6 +616,210 @@ console.log(johnAthlete6);
 
 johnAthlete6.calculateAge();
 johnAthlete6.wonMedal();
+
+
+*/
+
+
+
+/***********************************
+***  CODING CHALLENGE 8
+**********************************/
+
+/*
+
+ You are working in a small town and you are in charge of two town elements:  1.Parks  2.Streets
+ 
+ Currently there are 3 parks and 4 streets. All parks and streets have a name and a build year.
+ 
+ At the enf of the year, produce a report with:
+ 1.  Tree density of each park (Formula number of trees/park area)
+ 2.  Average age of each town's park (sum of all ages/number of parks)
+ 3.  Name of the park that has more than 1000 trees
+ 4.  Total and average length of the town's streets
+ 5.  Size classification or all streets: tiny/small/normal/big/huge.  If the size is unknown, the default is normal
+ 
+ All the report data should be printed to the console.
+ 
+ HINT: Use some of ES6 features: classes, subclasses, template strings, default parameters, maps, arrow functions, destructuring etc.
+
+*/
+
+class Town{
+    constructor(name, build){
+        this.name = name;
+        this.build = build;
+    }
+}
+
+class Park extends Town{
+   constructor(name, build, area, trees){
+        super(name, build);
+        this.area = area;
+        this.trees = trees;
+    }
+
+    density(){
+        return this.trees / this.area;
+    }
+    
+    age(){
+        return new Date().getFullYear() - this.build;
+    }
+    
+    parkTrees(){
+    if(this.trees >= 1000)
+        {
+            console.log(`${this.name} has ${this.trees} trees`);
+        }
+}
+}
+
+class Street extends Town{
+       constructor(name, build, streetLength=400){
+        super(name, build);
+        this.streetLength = streetLength;
+        this.classification = this.streetSize();
+    }
+    
+    streetSize(){
+        if(this.streetLength < 75)
+         {
+             return 'tiny';
+         }
+        else if(this.streetLength <= 200)
+         {
+             return 'small';
+         }
+        else if(this.streetLength > 200 && this.streetLength <= 500)
+         {
+             return 'normal';
+         }
+        else if(this.streetLength > 500 && this.streetLength <= 700)
+         {
+             return 'big';
+         }
+        else 
+         {
+             return 'huge';
+         }
+    }
+}
+
+
+const alstonGeorgePark = new Park('Alson George Park', 1927, 400, 35);
+const nonParielPark = new Park('Non Pariel Pasture', 1976, 350, 1100);
+const samaritanPark = new Park('Samaritan Recreation', 2017, 900, 600);
+
+
+const queenStreet = new Street('Queen Street', 1846);
+const diamondStreet = new Street('Diamond Street', 1716, 900);
+const munroStreet = new Street('Munro Street', 1901, 75);
+const gallStreet = new Street('Gall Street', 1950, 45);
+
+
+const alstonGeorgeparkReport = new Map();
+alstonGeorgeparkReport.set('Name', alstonGeorgePark.name);
+alstonGeorgeparkReport.set('Build', alstonGeorgePark.build);
+alstonGeorgeparkReport.set('Area', alstonGeorgePark.area);
+alstonGeorgeparkReport.set('Trees', alstonGeorgePark.trees);
+alstonGeorgeparkReport.set('Density', alstonGeorgePark.density());
+alstonGeorgeparkReport.set('Age', alstonGeorgePark.age());
+
+const nonParielParkReport = new Map();
+nonParielParkReport.set('Name', nonParielPark.name);
+nonParielParkReport.set('Build', nonParielPark.build);
+nonParielParkReport.set('Area', nonParielPark.area);
+nonParielParkReport.set('Trees', nonParielPark.trees);
+nonParielParkReport.set('Density', nonParielPark.density());
+nonParielParkReport.set('Age', nonParielPark.age());
+
+const samaritanParkReport = new Map();
+samaritanParkReport.set('Name', samaritanPark.name);
+samaritanParkReport.set('Build', samaritanPark.build);
+samaritanParkReport.set('Area', samaritanPark.area);
+samaritanParkReport.set('Trees', samaritanPark.trees);
+samaritanParkReport.set('Density', samaritanPark.density());
+samaritanParkReport.set('Age', samaritanPark.age());
+
+const queenStreetReport = new Map();
+queenStreetReport.set('Name', queenStreet.name);
+queenStreetReport.set('Build', queenStreet.build);
+queenStreetReport.set('Length', queenStreet.streetLength);
+queenStreetReport.set('Classification', queenStreet.classification);
+
+const diamondStreetReport = new Map();
+diamondStreetReport.set('Name', diamondStreet.name);
+diamondStreetReport.set('Build', diamondStreet.build);
+diamondStreetReport.set('Length', diamondStreet.streetLength);
+diamondStreetReport.set('Classification', diamondStreet.classification);
+
+const munroStreetReport = new Map();
+munroStreetReport.set('Name', munroStreet.name);
+munroStreetReport.set('Build', munroStreet.build);
+munroStreetReport.set('Length', munroStreet.streetLength);
+munroStreetReport.set('Classification', munroStreet.classification);
+
+const gallStreetReport = new Map();
+gallStreetReport.set('Name', gallStreet.name);
+gallStreetReport.set('Build', gallStreet.build);
+gallStreetReport.set('Length', gallStreet.streetLength);
+gallStreetReport.set('Classification', gallStreet.classification);
+
+
+const parkNames = [alstonGeorgeparkReport.get('Name'), nonParielParkReport.get('Name'), samaritanParkReport.get('Name') ];
+const parkAges = [alstonGeorgeparkReport.get('Age'), nonParielParkReport.get('Age'), samaritanParkReport.get('Age') ];
+
+function averageAge(names, ages){
+    let i = 0;
+    ages.forEach(cur => console.log(`${names[i++]} Average Age: ${cur / ages.length}`));
+}
+
+function averageAgeAll(ages){
+    let sumAge = 0;
+    ages.forEach(cur => sumAge += cur);
+    return sumAge / ages.length;
+}
+
+function streetLength(streetLengths){
+    let totalLength = 0;
+    streetLengths.forEach(cur => totalLength += cur);
+   return totalLength;
+}
+
+function averageStreetLength(streetLengths){
+   return streetLength(streetLengths) / streetLengths.length;    
+}
+
+let totalStreetLengths = streetLength([queenStreetReport.get('Length'), diamondStreetReport.get('Length'), munroStreetReport.get('Length'), gallStreetReport.get('Length') ]);
+
+let averageStreetLengths = averageStreetLength([queenStreetReport.get('Length'), diamondStreetReport.get('Length'), munroStreetReport.get('Length'), gallStreetReport.get('Length')]);
+
+
+console.log(`------------- PARK REPORTS ${new Date().getFullYear()} --------------------- `);
+console.log(`${alstonGeorgeparkReport.get('Name')} has tree density of ${alstonGeorgeparkReport.get('Density')}`);
+console.log(`${nonParielParkReport.get('Name')} has tree density of ${nonParielParkReport.get('Density')}`);
+console.log(`${samaritanParkReport.get('Name')} has tree density of ${samaritanParkReport.get('Density')}`);
+//averageAge(parkNames, parkAges);
+console.log(`${alstonGeorgeparkReport.get('Name')} has age of ${alstonGeorgeparkReport.get('Age')}`);
+console.log(`${nonParielParkReport.get('Name')} has age of ${nonParielParkReport.get('Age')}`);
+console.log(`${samaritanParkReport.get('Name')} has age of ${samaritanParkReport.get('Age')}`);
+console.log(`Average age of parks ${averageAgeAll(parkAges)}`);
+alstonGeorgePark.parkTrees();
+nonParielPark.parkTrees();
+samaritanPark.parkTrees();
+
+console.log(`------------- STREET REPORTS ${new Date().getFullYear()} --------------------- `);
+console.log(`Total street lengths: ${totalStreetLengths}`);
+console.log(`Average street lengths: ${averageStreetLengths}`);
+
+console.log(`${queenStreetReport.get('Name')} is ${queenStreetReport.get('Length')} and classified as ${queenStreetReport.get('Classification')} street`);
+console.log(`${diamondStreetReport.get('Name')} is ${diamondStreetReport.get('Length')} and classified as ${diamondStreetReport.get('Classification')} street`);
+console.log(`${munroStreetReport.get('Name')} is ${munroStreetReport.get('Length')} and classified as ${munroStreetReport.get('Classification')} street`);
+console.log(`${gallStreetReport.get('Name')} is ${gallStreetReport.get('Length')} and classified as ${gallStreetReport.get('Classification')} street`);
+
+
+
 
 
 
