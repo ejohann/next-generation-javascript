@@ -456,14 +456,16 @@ console.log(question.get('question'));
 console.log(question.size);
 
 if(question.has(4)){
-    question.delete(4);
+  //  question.delete(4);
+    console.log('Answer 4 is here');
 }
 
-console.log(question);
+//console.log(question);
 
-question.clear();
-console.log(question);
+//question.clear();
+//console.log(question);
 
+question.forEach((value, key) => console.log(`this is ${key}, and it's set to ${value}`));
 
 
 
